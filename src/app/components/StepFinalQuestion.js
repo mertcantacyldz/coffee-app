@@ -132,12 +132,14 @@ export default function StepFinalQuestion({ onNext }) {
         transition={{ type: 'spring', stiffness: 80, damping: 15, duration: 0.8 }}
       >
         <motion.div
-          className={styles.yesFullscreenText}
+          className={styles.yesFullscreenContent}
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.5, duration: 0.6 }}
         >
-          <span>EVET!</span>
+          <div className={styles.yesFullscreenButton}>
+            EVET! 🎉
+          </div>
           <span className={styles.yesFullscreenSub}>Artık başka seçeneğin kalmadı 😄</span>
         </motion.div>
       </motion.button>
