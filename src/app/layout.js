@@ -1,8 +1,8 @@
 import './globals.css';
 
 export const metadata = {
-  title: 'Emir Can İğrek Konser Daveti 🎵',
-  description: 'Helin, seni özel bir konsere davet ediyorum!',
+  title: 'Kahve Daveti ☕',
+  description: 'Mertcan seni kahve içmeye davet ediyor!',
 };
 
 export const viewport = {
@@ -16,7 +16,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="tr">
       <head>
-        <meta name="theme-color" content="#0a0118" />
+        <meta name="theme-color" content="#FDF5E6" />
       </head>
       <body>
         {children}

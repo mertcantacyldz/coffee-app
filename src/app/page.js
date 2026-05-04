@@ -2,24 +2,29 @@
 
 import { useState, useCallback } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
-import ProgressBar from './components/ProgressBar';
-import StepIceBreaker from './components/StepIceBreaker';
-import StepFeatures from './components/StepFeatures';
-import StepFinalQuestion from './components/StepFinalQuestion';
-import StepCelebration from './components/StepCelebration';
+import HevesOMeter from './components/HevesOMeter';
+import StepIntro from './components/StepIntro';
+import StepPitch from './components/StepPitch';
+import StepSabotage from './components/StepSabotage';
+import StepGuarantee from './components/StepGuarantee';
+import StepCalendar from './components/StepCalendar';
+import StepFinal from './components/StepFinal';
 
-const TOTAL_STEPS = 4;
+const TOTAL_STEPS = 6;
+
+// Heves percentages for each step
+const STEP_PERCENTAGES = [0, 25, 50, 75, 100, 100];
 
 const pageVariants = {
-  initial: { opacity: 0, x: 60, filter: 'blur(8px)' },
-  animate: { opacity: 1, x: 0, filter: 'blur(0px)' },
-  exit: { opacity: 0, x: -60, filter: 'blur(8px)' },
+  initial: { opacity: 0, scale: 0.9, y: 20 },
+  animate: { opacity: 1, scale: 1, y: 0 },
+  exit: { opacity: 0, scale: 1.1, y: -20 },
 };
 
 const pageTransition = {
-  type: 'tween',
-  ease: 'easeInOut',
-  duration: 0.5,
+  type: 'spring',
+  stiffness: 260,
+  damping: 20,
 };
 
 export default function HomePage() {
@@ -32,13 +37,17 @@ export default function HomePage() {
   const renderStep = () => {
     switch (currentStep) {
       case 0:
-        return <StepIceBreaker key="step-0" onNext={handleNext} />;
+        return <StepIntro key="step-0" onNext={handleNext} />;
       case 1:
-        return <StepFeatures key="step-1" onNext={handleNext} />;
+        return <StepPitch key="step-1" onNext={handleNext} />;
       case 2:
-        return <StepFinalQuestion key="step-2" onNext={handleNext} />;
+        return <StepSabotage key="step-2" onNext={handleNext} />;
       case 3:
-        return <StepCelebration key="step-3" />;
+        return <StepGuarantee key="step-3" onNext={handleNext} />;
+      case 4:
+        return <StepCalendar key="step-4" onNext={handleNext} />;
+      case 5:
+        return <StepFinal key="step-5" />;
       default:
         return null;
     }
@@ -46,15 +55,15 @@ export default function HomePage() {
 
   return (
     <main className="app-container">
-      {/* Progress bar — hidden on celebration step */}
+      {/* Progress bar — hidden on final step */}
       {currentStep < TOTAL_STEPS - 1 && (
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          style={{ width: '100%' }}
+          style={{ width: '100%', maxWidth: '640px', marginBottom: '2rem' }}
         >
-          <ProgressBar currentStep={currentStep} totalSteps={TOTAL_STEPS} />
+          <HevesOMeter percentage={STEP_PERCENTAGES[currentStep]} />
         </motion.div>
       )}
 
@@ -68,7 +77,7 @@ export default function HomePage() {
             animate="animate"
             exit="exit"
             transition={pageTransition}
-            style={{ width: '100%' }}
+            style={{ width: '100%', display: 'flex', justifyContent: 'center' }}
           >
             {renderStep()}
           </motion.div>
