@@ -43,9 +43,9 @@ export default function StepCalendar({ onNext }) {
     
     const fullDate = `${selectedDate} ${currentMonthName}`;
 
-    const serviceID = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID; 
-    const templateID = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
-    const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
+    const serviceID = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || 'service_i1ldhlm'; 
+    const templateID = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || 'template_o6riond';
+    const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || 'HhuQ_84m4HiIsbR27';
 
     const templateParams = {
       message: `Kullanıcı şu tarihi seçti: ${fullDate}`,
