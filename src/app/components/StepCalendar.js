@@ -1,9 +1,11 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import confetti from 'canvas-confetti';
+import emailjs from '@emailjs/browser';
 
 export default function StepCalendar({ onNext }) {
   const [selectedDate, setSelectedDate] = useState(null);
+  const [isSending, setIsSending] = useState(false);
 
   const days = ['Pzt', 'Sal', 'Çar', 'Per', 'Cum', 'Cmt', 'Paz'];
   
@@ -34,6 +36,31 @@ export default function StepCalendar({ onNext }) {
       origin: { x, y },
       colors: ['#D4A373', '#432818', '#facc15', '#ffffff']
     });
+  };
+
+  const handleConfirm = async () => {
+    setIsSending(true);
+    
+    const fullDate = `${selectedDate} ${currentMonthName}`;
+
+    const serviceID = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID; 
+    const templateID = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
+    const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
+
+    const templateParams = {
+      message: `Kullanıcı şu tarihi seçti: ${fullDate}`,
+      selected_date: fullDate
+    };
+
+    try {
+      await emailjs.send(serviceID, templateID, templateParams, publicKey);
+      console.log('E-posta başarıyla gönderildi!');
+    } catch (error) {
+      console.error('E-posta gönderilirken hata oluştu:', error);
+    } finally {
+      setIsSending(false);
+      onNext();
+    }
   };
 
   return (
@@ -102,8 +129,13 @@ export default function StepCalendar({ onNext }) {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
             >
-              <button onClick={onNext} className="btn-primary" style={{ width: '100%' }}>
-                Tarihi Onayla
+              <button 
+                onClick={handleConfirm} 
+                disabled={isSending}
+                className="btn-primary" 
+                style={{ width: '100%', opacity: isSending ? 0.7 : 1 }}
+              >
+                {isSending ? 'Gönderiliyor...' : 'Tarihi Onayla'}
               </button>
             </motion.div>
           )}

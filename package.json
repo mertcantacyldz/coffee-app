@@ -9,6 +9,7 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@emailjs/browser": "^4.4.1",
     "@lottiefiles/dotlottie-react": "^0.19.0",
     "canvas-confetti": "^1.9.4",
     "framer-motion": "^12.38.0",
