@@ -21,9 +21,9 @@ export default function StepFinal() {
     <div className="glass-card" style={{ padding: 'var(--card-padding)', textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
 
       <motion.div
-        initial={{ scale: 0.01 }}
-        animate={{ scale: 1 }}
-        transition={{ type: 'spring', damping: 15 }}
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, type: 'spring', damping: 15 }}
         style={{ width: 'var(--lottie-main-size)', height: 'var(--lottie-main-size)', margin: '0 auto 1rem auto' }}
       >
         <DotLottieReact
