@@ -37,12 +37,12 @@ export default function StepCalendar({ onNext }) {
   };
 
   return (
-    <div className="glass-card" style={{ padding: '2rem', textAlign: 'center', width: '100%', maxWidth: '400px' }}>
+    <div className="glass-card" style={{ padding: 'var(--card-padding)', textAlign: 'center', width: '100%', maxWidth: '400px' }}>
       
-      <h2 style={{ color: 'var(--accent-coffee)', marginBottom: '0.5rem' }}>
+      <h2 style={{ color: 'var(--accent-coffee)', marginBottom: '0.5rem', fontSize: 'var(--title-size)' }}>
         Özgür Takvim 🗓️
       </h2>
-      <p style={{ color: 'var(--text-secondary)', marginBottom: '1.5rem', fontSize: '0.9rem' }}>
+      <p style={{ color: 'var(--text-secondary)', marginBottom: 'var(--gap-md)', fontSize: '0.9rem' }}>
         Bahaneleri minimuma indirdik. Ajandanı bana değil, beni ajandana göre ayarla. Patron sensin!
       </p>
 
@@ -94,7 +94,7 @@ export default function StepCalendar({ onNext }) {
         </div>
       </div>
 
-      <div style={{ height: '60px', marginTop: '1.5rem' }}>
+      <div style={{ height: '60px', marginTop: 'var(--gap-md)' }}>
         <AnimatePresence>
           {selectedDate && (
             <motion.div

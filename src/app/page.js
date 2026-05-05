@@ -9,6 +9,7 @@ import StepSabotage from './components/StepSabotage';
 import StepGuarantee from './components/StepGuarantee';
 import StepCalendar from './components/StepCalendar';
 import StepFinal from './components/StepFinal';
+import ScrollIndicator from './components/ScrollIndicator';
 
 const TOTAL_STEPS = 6;
 
@@ -83,6 +84,9 @@ export default function HomePage() {
           </motion.div>
         </AnimatePresence>
       </div>
+
+      {/* Akıllı Kaydırma Göstergesi */}
+      <ScrollIndicator />
     </main>
   );
 }

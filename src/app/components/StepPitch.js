@@ -18,10 +18,10 @@ export default function StepPitch({ onNext }) {
   };
 
   return (
-    <div className="glass-card" style={{ padding: '2rem', textAlign: 'left', position: 'relative' }}>
+    <div className="glass-card" style={{ padding: 'var(--card-padding)', textAlign: 'left', position: 'relative' }}>
 
       {/* Small Lottie in the corner */}
-      <div style={{ position: 'absolute', top: '-30px', right: '-30px', width: '120px', height: '120px', opacity: 0.8, pointerEvents: 'none' }}>
+      <div style={{ position: 'absolute', top: '-30px', right: '-30px', width: 'var(--lottie-corner-size)', height: 'var(--lottie-corner-size)', opacity: 0.8, pointerEvents: 'none' }}>
         <DotLottieReact
           src="https://lottie.host/9e8807f1-9f3e-4b8b-b752-2bdbb6784fc9/DARt0p08mb.lottie"
           loop
@@ -29,12 +29,12 @@ export default function StepPitch({ onNext }) {
         />
       </div>
 
-      <h2 style={{ color: 'var(--accent-coffee)', marginBottom: '1.5rem', textAlign: 'center', fontSize: '1.6rem' }}>
+      <h2 style={{ color: 'var(--accent-coffee)', marginBottom: 'var(--gap-md)', textAlign: 'center', fontSize: 'var(--title-size)' }}>
         Neden Bu Kahve <span style={{ color: 'var(--accent-orange)' }}>İçilmeli?</span>
       </h2>
 
       <motion.div variants={containerVariants} initial="hidden" animate="show">
-        <motion.div variants={itemVariants} style={{ marginBottom: '1.5rem' }}>
+        <motion.div variants={itemVariants} style={{ marginBottom: 'var(--gap-md)' }}>
           <h3 style={{ color: 'var(--accent-green)', display: 'flex', alignItems: 'center', gap: '8px' }}>
             <span>📈</span> Kazanımların
           </h3>
@@ -62,7 +62,7 @@ export default function StepPitch({ onNext }) {
           </ul>
         </motion.div>
 
-        <motion.div variants={itemVariants} style={{ marginBottom: '2rem' }}>
+        <motion.div variants={itemVariants} style={{ marginBottom: 'var(--gap-lg)' }}>
           <h3 style={{ color: 'var(--accent-red)', display: 'flex', alignItems: 'center', gap: '8px' }}>
             <span>📉</span> Kayıplarım (Eğer Hayır Dersen)
           </h3>

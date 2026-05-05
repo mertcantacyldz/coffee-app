@@ -49,16 +49,16 @@ export default function StepSabotage({ onNext }) {
   const allPopped = poppedBalloons.length === EXCUSES.length;
 
   return (
-    <div className="glass-card" style={{ padding: '2rem', textAlign: 'center', minHeight: '400px', display: 'flex', flexDirection: 'column' }}>
+    <div className="glass-card" style={{ padding: 'var(--card-padding)', textAlign: 'center', minHeight: 'auto', display: 'flex', flexDirection: 'column' }}>
 
-      <h2 style={{ color: 'var(--accent-coffee)', marginBottom: '0.5rem' }}>
+      <h2 style={{ color: 'var(--accent-coffee)', marginBottom: '0.5rem', fontSize: 'var(--title-size)' }}>
         Bahane İmha Üssü 🎈
       </h2>
       <p style={{ color: 'var(--text-secondary)', marginBottom: '2rem', fontSize: '0.9rem' }}>
         Aklındaki bahaneleri tek tek patlat, zihnini boşalt!
       </p>
 
-      <div style={{ flex: 1, position: 'relative', display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '15px', flexWrap: 'wrap' }}>
+      <div style={{ flex: 1, position: 'relative', display: 'grid', gridTemplateColumns: 'repeat(2, max-content)', justifyContent: 'center', alignItems: 'center', gap: '15px' }}>
         <AnimatePresence>
           {EXCUSES.map((excuse) => {
             if (poppedBalloons.includes(excuse.id)) return null;
@@ -82,18 +82,18 @@ export default function StepSabotage({ onNext }) {
                 style={{
                   background: `radial-gradient(circle at 30% 30%, ${excuse.color}aa, ${excuse.color})`,
                   color: 'white',
-                  padding: '20px',
+                  padding: 'var(--balloon-padding)',
                   borderRadius: '50% 50% 50% 50% / 60% 60% 40% 40%',
                   cursor: 'pointer',
                   boxShadow: `0 10px 20px ${excuse.color}66`,
                   fontWeight: 'bold',
-                  width: '120px',
-                  height: '140px',
+                  width: 'var(--balloon-width)',
+                  height: 'var(--balloon-height)',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
                   textAlign: 'center',
-                  fontSize: '0.85rem',
+                  fontSize: 'var(--balloon-font)',
                   userSelect: 'none'
                 }}
                 whileHover={{ scale: 1.1 }}

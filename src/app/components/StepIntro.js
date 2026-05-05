@@ -3,13 +3,13 @@ import { DotLottieReact } from '@lottiefiles/dotlottie-react';
 
 export default function StepIntro({ onNext }) {
   return (
-    <div className="glass-card" style={{ padding: '2rem', textAlign: 'center' }}>
+    <div className="glass-card" style={{ padding: 'var(--card-padding)', textAlign: 'center' }}>
       <motion.div
         initial={{ scale: 0.8, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         transition={{ duration: 0.6, ease: "backOut" }}
       >
-        <div style={{ width: '250px', height: '250px', margin: '0 auto' }}>
+        <div style={{ width: 'var(--lottie-main-size)', height: 'var(--lottie-main-size)', margin: '0 auto' }}>
           <DotLottieReact
             src="https://lottie.host/f4687208-8ef0-4116-b254-dd04ef1e053b/c31hUXVtXS.lottie"
             loop
@@ -17,7 +17,7 @@ export default function StepIntro({ onNext }) {
           />
         </div>
 
-        <h1 style={{ color: 'var(--accent-coffee)', marginBottom: '1rem', fontSize: '1.8rem', fontWeight: 700 }}>
+        <h1 style={{ color: 'var(--accent-coffee)', marginBottom: 'var(--gap-md)', fontSize: 'var(--title-size)', fontWeight: 700 }}>
           Merhaba Helin! 👋 <br /> 
           <span 
             className="text-gradient" 
@@ -33,11 +33,11 @@ export default function StepIntro({ onNext }) {
           </span>
         </h1>
 
-        <p style={{ color: 'var(--text-secondary)', marginBottom: '2rem', fontSize: '1.1rem' }}>
+        <p style={{ color: 'var(--text-secondary)', marginBottom: 'var(--gap-lg)', fontSize: 'var(--subtitle-size)' }}>
           Mertcan'la kahve içmeye ikna uygulamasına hoş geldin! Bu uygulama, keyifli bir tanışma ve iyi bir kahve için özel olarak senin için tasarlandı.
         </p>
 
-        <h3 style={{ color: 'var(--accent-coffee)', marginBottom: '1.5rem', fontWeight: 600 }}>
+        <h3 style={{ color: 'var(--accent-coffee)', marginBottom: 'var(--gap-md)', fontWeight: 600 }}>
           Hazır mısın?
         </h3>
 
@@ -46,7 +46,7 @@ export default function StepIntro({ onNext }) {
           className="btn-primary"
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
-          style={{ padding: '1rem 3rem' }}
+          style={{ padding: 'var(--btn-padding)' }}
         >
           Hadi Başlayalım!
         </motion.button>

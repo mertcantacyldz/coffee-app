@@ -18,13 +18,13 @@ export default function StepFinal() {
   };
 
   return (
-    <div className="glass-card" style={{ padding: '2rem', textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+    <div className="glass-card" style={{ padding: 'var(--card-padding)', textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
 
       <motion.div
         initial={{ scale: 0 }}
         animate={{ scale: 1 }}
         transition={{ type: 'spring', damping: 15 }}
-        style={{ width: '250px', height: '250px', margin: '0 auto 1rem auto' }}
+        style={{ width: 'var(--lottie-main-size)', height: 'var(--lottie-main-size)', margin: '0 auto 1rem auto' }}
       >
         <DotLottieReact
           src="https://lottie.host/4067d3c9-ef4f-4414-9ee2-227c597437b3/V3z2SEzpW2.lottie"
@@ -33,11 +33,11 @@ export default function StepFinal() {
         />
       </motion.div>
 
-      <h2 style={{ color: 'var(--accent-coffee)', marginBottom: '1rem', fontSize: '1.8rem' }}>
+      <h2 style={{ color: 'var(--accent-coffee)', marginBottom: '1rem', fontSize: 'var(--title-size)' }}>
         İşte Bu Kadar! 🥂
       </h2>
 
-      <p style={{ color: 'var(--text-secondary)', marginBottom: '2rem', fontSize: '1.1rem' }}>
+      <p style={{ color: 'var(--text-secondary)', marginBottom: 'var(--gap-lg)', fontSize: 'var(--subtitle-size)' }}>
         Mükemmel! Seçtiğin tarih Mertcan'ın ajandasına başarıyla not edildi. Güzel bir sohbet bizi bekliyor!
       </p>
 
@@ -47,7 +47,7 @@ export default function StepFinal() {
           className="btn-primary"
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
-          style={{ padding: '1rem 3rem', fontSize: '1.2rem' }}
+          style={{ padding: 'var(--btn-padding)', fontSize: '1.2rem' }}
         >
           Harika, Anlaştık! 🤝
         </motion.button>

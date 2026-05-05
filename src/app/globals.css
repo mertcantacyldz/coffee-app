@@ -67,6 +67,41 @@
   --transition-base: 250ms cubic-bezier(0.4, 0, 0.2, 1);
   --transition-slow: 400ms cubic-bezier(0.4, 0, 0.2, 1);
   --transition-elastic: 600ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+  /* Component Dimensions & Spacing (Responsive) */
+  --card-padding: 2rem;
+  --lottie-main-size: 250px;
+  --lottie-corner-size: 120px;
+  --icon-size: 100px;
+  --icon-font: 3rem;
+  --title-size: 1.8rem;
+  --subtitle-size: 1.1rem;
+  --btn-padding: 1rem 3rem;
+  --balloon-width: 120px;
+  --balloon-height: 140px;
+  --balloon-padding: 20px;
+  --balloon-font: 0.85rem;
+  --gap-md: 1.5rem;
+  --gap-lg: 2rem;
+}
+
+@media (max-width: 480px) {
+  :root {
+    --card-padding: 1.25rem;
+    --lottie-main-size: 160px;
+    --lottie-corner-size: 80px;
+    --icon-size: 70px;
+    --icon-font: 2rem;
+    --title-size: 1.4rem;
+    --subtitle-size: 1rem;
+    --btn-padding: 0.75rem 2rem;
+    --balloon-width: 120px;
+    --balloon-height: 130px;
+    --balloon-padding: 15px;
+    --balloon-font: 0.85rem;
+    --gap-md: 1rem;
+    --gap-lg: 1.25rem;
+  }
 }
 
 /* ======================== */
@@ -188,7 +223,7 @@ button {
 .btn-primary {
   background: var(--gradient-main);
   color: var(--text-inverse);
-  padding: var(--space-md) var(--space-xl);
+  padding: var(--btn-padding);
   border-radius: var(--radius-full);
   font-weight: 700;
   font-size: 1.1rem;
