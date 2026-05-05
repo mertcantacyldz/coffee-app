@@ -53,10 +53,20 @@ export default function StepCalendar({ onNext }) {
     };
 
     try {
-      await emailjs.send(serviceID, templateID, templateParams, publicKey);
-      console.log('E-posta başarıyla gönderildi!');
+      console.log('E-posta gönderme işlemi başlatılıyor...');
+      
+      // EmailJS'i başlat
+      emailjs.init(publicKey);
+      
+      const response = await emailjs.send(serviceID, templateID, templateParams);
+      
+      console.log('E-posta başarıyla gönderildi!', response.status, response.text);
+      
+      // Kullanıcının başarıyı görmesi için çok kısa bir bekleme
+      await new Promise(resolve => setTimeout(resolve, 1000));
     } catch (error) {
       console.error('E-posta gönderilirken hata oluştu:', error);
+      alert('E-posta gönderilemedi: ' + (error?.text || error?.message || 'Bilinmeyen hata'));
     } finally {
       setIsSending(false);
       onNext();
