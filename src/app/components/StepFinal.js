@@ -27,7 +27,7 @@ export default function StepFinal() {
         style={{ width: '250px', height: '250px', margin: '0 auto 1rem auto' }}
       >
         <DotLottieReact
-          src="https://lottie.host/ef8815b7-6069-4a32-b5ea-eb468f72af69/qavrcRUd3V.lottie"
+          src="https://lottie.host/4067d3c9-ef4f-4414-9ee2-227c597437b3/V3z2SEzpW2.lottie"
           loop
           autoplay
         />
